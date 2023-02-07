@@ -14,6 +14,10 @@ buffer = []
 # for f in os.listdir(dir):
 #     os.remove(os.path.join(dir, f))
 
+isExist = os.path.exists("captures")
+
+if not isExist:
+    os.mkdir("captures")
 
 def keyboardCallBack(key: keyboard.KeyboardEvent):
     global current_key
@@ -29,7 +33,7 @@ def keyboardCallBack(key: keyboard.KeyboardEvent):
 keyboard.hook(callback=keyboardCallBack)
 i=0
 
-while(1):
+while(not keyboard.is_pressed("esc")):
     time.sleep(0.1)
     image = pyautogui.screenshot()
     image = cv2.cvtColor(np.array(ImageGrab.grab(bbox = (500,230,1400,450))), cv2.COLOR_RGB2BGR)
