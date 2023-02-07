@@ -1,4 +1,5 @@
 import os
+import shutil
 import numpy as np
 import csv 
 
@@ -9,8 +10,10 @@ for f in os.listdir(dir):
     key = f.rsplit('.',1)[0].rsplit(" ",1)[1]
     
     if key=="n":
+        shutil.copy2('captures/'+f, 'datasets/no_key')
         labels.append({'file_name': f, 'class': 0})
     elif key=="space":
+        shutil.copy2('captures/'+f, 'datasets/space')
         labels.append({'file_name': f, 'class': 1})
 
 field_names= ['file_name', 'class']
