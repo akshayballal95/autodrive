@@ -34,8 +34,7 @@ keyboard.hook(callback=keyboardCallBack)
 i=0
 
 while(not keyboard.is_pressed("esc")):
-    image = pyautogui.screenshot()
-    image = cv2.cvtColor(np.array(ImageGrab.grab(bbox = (500,230,1400,450))), cv2.COLOR_RGB2BGR)
+    image = cv2.cvtColor(np.array(ImageGrab.grab(bbox = (620,220,1280,360))), cv2.COLOR_RGB2BGR)
     if len(buffer)!=0:
         cv2.imwrite("captures/" +str(i)+" "+ current_key +".png", image)
     else:
