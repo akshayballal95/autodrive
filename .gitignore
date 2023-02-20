@@ -151,7 +151,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-captures/
 datasets/
 models/
 
