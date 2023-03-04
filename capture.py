@@ -1,22 +1,22 @@
-import shutil
 import cv2
 from PIL import ImageGrab
-import pyautogui
 import numpy as np
 import keyboard
-import time
 import os
 
 current_key = "1"
 buffer = []
 
-dir = 'captures'
-for f in os.listdir(dir):
-    os.remove(os.path.join(dir, f))
 
 isExist = os.path.exists("captures")
 
-if not isExist:
+if isExist:
+    dir = 'captures'
+    for f in os.listdir(dir):
+        os.remove(os.path.join(dir, f))
+
+else:
+
     os.mkdir("captures")
 
 def keyboardCallBack(key: keyboard.KeyboardEvent):
@@ -34,7 +34,11 @@ keyboard.hook(callback=keyboardCallBack)
 i=0
 
 while(not keyboard.is_pressed("esc")):
-    image = cv2.cvtColor(np.array(ImageGrab.grab(bbox = (620,220,1280,360))), cv2.COLOR_RGB2BGR)
+    
+    ###uncomment for dino game
+    # image = cv2.cvtColor(np.array(ImageGrab.grab(bbox = (620,220,1280,360))), cv2.COLOR_RGB2BGR)
+
+    image = cv2.cvtColor(np.array(ImageGrab.grab(bbox = (685,350,1235,840))), cv2.COLOR_RGB2BGR)
     if len(buffer)!=0:
         cv2.imwrite("captures/" +str(i)+" "+ current_key +".png", image)
     else:

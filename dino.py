@@ -1,5 +1,5 @@
 import torch
-from torchvision.models.efficientnet import efficientnet_v2_s
+from torchvision.models.efficientnet import efficientnet_v2_s                                                                                          
 import keyboard
 from PIL import Image, ImageGrab
 import numpy as np
@@ -19,15 +19,13 @@ transformer = Compose([
     Normalize(mean =[0.485, 0.456, 0.406], std =[0.229, 0.224, 0.225])
 ])
 
-convert_tensor = ToTensor()
-
 def generator():
     while(not keyboard.is_pressed("esc")):
       yield
 
 for _ in tqdm(generator()):
     image = ImageGrab.grab(bbox = (620,220,1280,360)) 
-    image = convert_tensor(image)
+    image = ToTensor()(image)
     image = image.to("cuda")
     image = transformer(image)
     outputs = model(image[None , ...])
