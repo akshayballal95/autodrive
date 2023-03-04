@@ -153,6 +153,9 @@ dmypy.json
 cython_debug/
 datasets/
 models/
+dino_captures/
+captures/
+captures_snake/
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
