@@ -164,5 +164,4 @@ captures_snake/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 efficientnet.pth
-runs/
 bfg-1.14.0.jar
