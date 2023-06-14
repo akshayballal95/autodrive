@@ -165,3 +165,4 @@ captures_snake/
 #.idea/
 efficientnet.pth
 runs/
+bfg-1.14.0.jar
