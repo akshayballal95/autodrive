@@ -30,6 +30,7 @@ def train_step(
 
         # print statistics
         running_loss += loss
+    tqdm.write("Training Accuracy: " + str(accuracy / len(trainloader)))
     # tqdm.write("Current Loss: " + str(running_loss/len(trainloader)))
     return running_loss / len(trainloader), accuracy / len(trainloader)
 
@@ -52,4 +53,5 @@ def test_step(model, testloader, criterion, device=device):
 
             loss = criterion(outputs, labels)
             running_loss += loss
+    tqdm.write("Testing Accuracy: " + str(accuracy / len(testloader)))
     return running_loss / len(testloader), accuracy / len(testloader)

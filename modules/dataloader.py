@@ -1,6 +1,6 @@
 from sklearn.model_selection import train_test_split
 import pandas as pd
-from dataset import DinoDataset
+from modules.dataset import DinoDataset
 import torch
 
 
@@ -27,4 +27,4 @@ def dataloader(
         testset, batch_size=batch_size, shuffle=False, num_workers=num_workers
     )
 
-    return trainloader, testloader
+    return trainset, testset, trainloader, testloader

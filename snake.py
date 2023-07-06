@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 model = efficientnet_v2_s()
 model.classifier = torch.nn.Sequential(torch.nn.Dropout(p=0.2, inplace=True), torch.nn.Linear(in_features = 1280, out_features = 5)) 
-model.load_state_dict(torch.load("models/21_adam_0.0007_35.pth"))
+model.load_state_dict(torch.load("models/06_07_2023-22_25_07_effnet_v2_s_0.0007_35.pth"))
 model.to("cuda")
 model.eval()
 
@@ -24,8 +24,8 @@ label_keys= {
 
 
 transformer = Compose([
-    Resize([128,128], interpolation = InterpolationMode.BILINEAR),
-    CenterCrop(128),
+    Resize([64,64], interpolation = InterpolationMode.BILINEAR),
+    CenterCrop(64),
     Normalize(mean =[0.485, 0.456, 0.406], std =[0.229, 0.224, 0.225])
 ])
 
